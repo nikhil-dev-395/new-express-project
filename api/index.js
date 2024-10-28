@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express();
+const router = require("../src/routes/web.routes.js");
+const bodyParser = require("body-parser");
 
-app.get("/", (req, res) => res.send("Express on Vercel , hi this is updated by nikhil guruji by coding with nikhil cghannel"));
+app.use(express.json());
+app.use(bodyParser.json());
+
+app.use("/", router);
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
